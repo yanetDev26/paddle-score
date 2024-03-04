@@ -1,2 +1,2 @@
-# paddle-points
+# paddlel-score
 This application was created to count padel points
