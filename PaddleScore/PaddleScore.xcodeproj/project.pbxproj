@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8F14A1FD2CA1CB84001C897D /* PaddleScore Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 8F14A1FC2CA1CB84001C897D /* PaddleScore Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8F5BA59B2CB6D41A00086C5A /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 8F5BA59A2CB6D41A00086C5A /* FirebaseDatabase */; };
+		8F5BA59D2CB6D78D00086C5A /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 8F5BA59C2CB6D78D00086C5A /* FirebaseCore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F5BA59D2CB6D78D00086C5A /* FirebaseCore in Frameworks */,
+				8F5BA59B2CB6D41A00086C5A /* FirebaseDatabase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +162,8 @@
 			);
 			name = "PaddleScore Watch App";
 			packageProductDependencies = (
+				8F5BA59A2CB6D41A00086C5A /* FirebaseDatabase */,
+				8F5BA59C2CB6D78D00086C5A /* FirebaseCore */,
 			);
 			productName = "PaddleScore Watch App";
 			productReference = 8F14A1FC2CA1CB84001C897D /* PaddleScore Watch App.app */;
@@ -244,6 +250,9 @@
 			);
 			mainGroup = 8F14A1EF2CA1CB84001C897D;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				8F5BA5992CB6D41A00086C5A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 8F14A1F72CA1CB84001C897D /* Products */;
 			projectDirPath = "";
@@ -666,6 +675,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8F5BA5992CB6D41A00086C5A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8F5BA59A2CB6D41A00086C5A /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F5BA5992CB6D41A00086C5A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		8F5BA59C2CB6D78D00086C5A /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F5BA5992CB6D41A00086C5A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8F14A1F02CA1CB84001C897D /* Project object */;
 }
