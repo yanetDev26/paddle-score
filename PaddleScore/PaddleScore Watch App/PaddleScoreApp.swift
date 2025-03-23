@@ -18,7 +18,7 @@ struct PaddleScore_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
             if showSplash {
-                SplashScreen(isActive: $showSplash)
+                PaddleScoreSplashScreen(isActive: $showSplash)
             } else {
                 PaddleScoreHomeScreen()
             }

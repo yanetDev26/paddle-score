@@ -11,7 +11,7 @@ import SwiftUI
 
 import SwiftUI
 
-struct SplashScreen: View {
+struct PaddleScoreSplashScreen: View {
     @State private var bounce = false
     @Binding var isActive: Bool
     
@@ -40,6 +40,6 @@ struct SplashScreen: View {
 
 struct SplashView_Previews: PreviewProvider {
     static var previews: some View {
-        SplashScreen(isActive: .constant(true))
+        PaddleScoreSplashScreen(isActive: .constant(true))
     }
 }

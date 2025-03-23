@@ -18,6 +18,8 @@ class PaddleScoreViewModel: ObservableObject {
     
     private let pointSystem = [0, 15, 30, 40]
     
+    @Published var winner: String? // Nuevo estado para el equipo ganador del set
+
     func addPoint(to team: Int) {
         lastPoint = (team, team == 1 ? team1Points : team2Points)
         
@@ -69,9 +71,11 @@ class PaddleScoreViewModel: ObservableObject {
     private func checkSetWin() {
         if (team1Games >= 6 && team1Games - team2Games >= 2) {
             team1Sets += 1
+            winner = "Equipo 1"
             resetGames()
         } else if (team2Games >= 6 && team2Games - team1Games >= 2) {
             team2Sets += 1
+            winner = "Equipo 2"
             resetGames()
         }
     }
@@ -89,5 +93,9 @@ class PaddleScoreViewModel: ObservableObject {
             team2Points = last.points
         }
         lastPoint = nil
+    }
+    
+    func resetWinner() {
+        winner = nil // Resetear el ganador para continuar el partido
     }
 }

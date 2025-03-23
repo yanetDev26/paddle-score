@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PaddleScoreHomeScreen: View {
     @State private var navigateToScore = false
-
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -22,18 +22,20 @@ struct PaddleScoreHomeScreen: View {
                         .frame(width: 90, height: 90)
                     
                     PaddleScoreTextView(text: "Paddle Score", foregroundColor: .black)
+                        .fontWeight(.bold)
                     
-                    NavigationLink(value: true) {
+                    NavigationLink(destination: PaddleScoreMatchScreen(), isActive: $navigateToScore) {
                         PaddleScoreTextView(text: "Comenzar Partido", foregroundColor: .white)
                             .frame(maxWidth: .infinity)
-                            .padding(16)
+                            .padding(12)
                             .background(Color.purpleR170g96b200)
                             .cornerRadius(30)
                     }
                     .buttonStyle(PlainButtonStyle())
                 }
-                .navigationDestination(isPresented: $navigateToScore) {
-                    PaddleScoreMatchScreen()
+                .padding()
+                .onTapGesture {
+                    navigateToScore = true
                 }
             }
         }
