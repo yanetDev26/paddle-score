@@ -12,9 +12,16 @@ import WatchKit
 @main
 struct PaddleScore_Watch_AppApp: App {
     @WKExtensionDelegateAdaptor(AppDelegate.self) var delegate
+    
+    @State private var showSplash = true
+    
     var body: some Scene {
         WindowGroup {
-            SplashScreen(isActive: .constant(true))
+            if showSplash {
+                SplashScreen(isActive: $showSplash)
+            } else {
+                PaddleScoreHomeScreen()
+            }
         }
     }
 }

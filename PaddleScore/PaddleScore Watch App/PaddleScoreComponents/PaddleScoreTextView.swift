@@ -9,14 +9,15 @@ import SwiftUI
 
 struct PaddleScoreTextView: View {
     var text: String
+    var foregroundColor: Color
     
     var body: some View {
         Text(text)
             .font(ConstantsFonts.robotoRegular16)
-            .foregroundColor(.white)
+            .foregroundColor(foregroundColor)
     }
 }
 
 #Preview {
-    PaddleScoreTextView(text: "Paddle Score")
+    PaddleScoreTextView(text: "Paddle Score", foregroundColor: .white)
 }
