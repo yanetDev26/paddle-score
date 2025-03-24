@@ -5,7 +5,9 @@
 //  Created by Yanet Rodriguez on 23/03/2025.
 //
 
+import SwiftData
 import Foundation
+import SwiftUI
 
 class PaddleScoreViewModel: ObservableObject {
     @Published var team1Points = 0
@@ -14,11 +16,13 @@ class PaddleScoreViewModel: ObservableObject {
     @Published var team2Games = 0
     @Published var team1Sets = 0
     @Published var team2Sets = 0
-    private var lastPoint: (team: Int, points: Int)?
+    @Published var winner: String?
     
+    private var lastPoint: (team: Int, points: Int)?
     private let pointSystem = [0, 15, 30, 40]
     
-    @Published var winner: String? // Nuevo estado para el equipo ganador del set
+    @Environment(\.modelContext) var modelContext
+    @Query var matchHistory: [MatchResultModel]
 
     func addPoint(to team: Int) {
         lastPoint = (team, team == 1 ? team1Points : team2Points)
@@ -26,7 +30,7 @@ class PaddleScoreViewModel: ObservableObject {
         if team == 1 {
             if team1Points == 40 {
                 if team2Points == 40 {
-                    team1Points = 50 // Ventaja
+                    team1Points = 50
                 } else if team1Points == 50 {
                     winGame(winner: 1)
                 } else {
@@ -38,7 +42,7 @@ class PaddleScoreViewModel: ObservableObject {
         } else {
             if team2Points == 40 {
                 if team1Points == 40 {
-                    team2Points = 50 // Ventaja
+                    team2Points = 50
                 } else if team2Points == 50 {
                     winGame(winner: 2)
                 } else {
@@ -96,6 +100,18 @@ class PaddleScoreViewModel: ObservableObject {
     }
     
     func resetWinner() {
-        winner = nil // Resetear el ganador para continuar el partido
+        winner = nil
+    }
+    
+    private func saveMatchResult() {
+        let newMatch = MatchResultModel(
+            date: Date(),
+            team1Sets: team1Sets,
+            team2Sets: team2Sets,
+            team1Games: team1Games,
+            team2Games: team2Games
+        )
+        
+        modelContext.insert(newMatch)
     }
 }

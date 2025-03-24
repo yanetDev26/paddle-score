@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct ConstantsFonts {
-    static func customFont(name: String, size: CGFloat, weight: Font.Weight) -> Font {
+    static func customFont(name: String, size: CGFloat) -> Font {
         if let customFont = UIFont(name: name, size: size) {
-            return Font(customFont).weight(weight)
+            return Font(customFont)
         } else {
-            return Font.system(size: size, weight: weight)
+            return Font.system(size: size)
         }
     }
 
-    static let robotoRegular16 = customFont(name: "Roboto-Regular", size: 16, weight: .regular)
+    static let robotoRegular16 = customFont(name: "Roboto-Regular", size: 16)
+    
+    static let robotoBold16 = customFont(name: "Roboto-Bold", size: 16)
+    static let robotoBold22 = customFont(name: "Roboto-Bold", size: 22)
 }

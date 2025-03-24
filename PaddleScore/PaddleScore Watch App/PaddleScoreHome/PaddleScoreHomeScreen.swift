@@ -19,10 +19,10 @@ struct PaddleScoreHomeScreen: View {
                     Image("tennis_ball")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 90, height: 90)
+                        .frame(width: 80, height: 80)
                     
-                    PaddleScoreTextView(text: "Paddle Score", foregroundColor: .black)
-                        .fontWeight(.bold)
+                    PaddleScoreTextView(text: "Paddle Score", foregroundColor: .black, font: ConstantsFonts.robotoBold22, fontWeight: .bold)
+                    
                     
                     NavigationLink(destination: PaddleScoreMatchScreen(), isActive: $navigateToScore) {
                         PaddleScoreTextView(text: "Comenzar Partido", foregroundColor: .white)
@@ -36,6 +36,14 @@ struct PaddleScoreHomeScreen: View {
                 .padding()
                 .onTapGesture {
                     navigateToScore = true
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink(destination: PaddleScoreMatchHistoryScreen()) {
+                        Image(systemName: "clock.arrow.circlepath")
+                            .foregroundColor(.white)
+                    }
                 }
             }
         }

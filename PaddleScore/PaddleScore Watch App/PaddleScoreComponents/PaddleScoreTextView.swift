@@ -10,11 +10,15 @@ import SwiftUI
 struct PaddleScoreTextView: View {
     var text: String
     var foregroundColor: Color
+    var font: Font?
+    var fontWeight: Font.Weight?
     
     var body: some View {
         Text(text)
             .font(ConstantsFonts.robotoRegular16)
             .foregroundColor(foregroundColor)
+            .font(font ?? ConstantsFonts.robotoRegular16)
+            .fontWeight(fontWeight ?? .regular)
     }
 }
 

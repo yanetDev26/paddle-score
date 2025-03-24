@@ -30,7 +30,6 @@ struct PaddleScoreMatchScreen: View {
                 .frame(maxWidth: .infinity)
                 .background(Color.lightBlueR119g205b255)
                 
-                
                 HStack {
                     Button(action: {
                         viewModel.addPoint(to: 1)
